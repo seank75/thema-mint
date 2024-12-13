@@ -1,0 +1,12 @@
+@mixin mint-card-bg {
+  background: var(--primary-very-low);
+
+  @media (prefers-color-scheme: light) {
+    background: var(--header_background);
+  }
+}
+
+:root {
+  --mint-border-radius: 10px;
+  --mint-hover-shadow: 4px 4px var(--tertiary-high);
+}

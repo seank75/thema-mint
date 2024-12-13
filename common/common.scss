@@ -1,0 +1,391 @@
+@import "variables";
+@import "sidebar";
+@import "chat";
+
+.d-editor-textarea-wrapper,
+.select-kit-header {
+  border-radius: var(--mint-border-radius);
+}
+
+:root {
+  --d-input-border-radius: var(--mint-border-radius);
+  --d-nav-underline-height: 0;
+}
+
+.d-header {
+  height: 5em;
+  box-shadow: 1px; /*언더위키 헤더 아래 가는 선*/
+}
+
+.d-header-mode .bootstrap-mode {
+  color: var(--secondary);
+}
+
+.alert.alert-info {
+  border-radius: 10px;
+}
+
+.custom-homepage-columns {
+  margin: 0em 0 2em 0;
+  padding: 0;
+  .col {
+    position: relative;
+    border-radius: var(--mint-border-radius);
+    @include mint-card-bg;
+    padding: 0.5em 0.5em 1em; /*사이트도감, 공지사항 박스 양옆 여백*/
+    border: 1px solid #E8E8E8; /*사이트도감, 공지사항 테두리 라운드 및 라인*/
+    box-shadow: 0 0px 0px 0 rgba(103, 151, 255, 0.1), /*박스 테두리 엷은 명암*/
+      0 0px 0px 0 rgba(133, 255, 103, 0.1);
+    .header-wrapper {
+      background-color: transparent;
+      a h2 {
+        font-size: 1.4em;  /*사이트도감 공지사항 제목 조정*/
+        color: #2C3252;
+      }
+      .btn-primary {
+        display: none;
+      }
+    }
+    .btn-more {
+      color: var(--secondary);
+      background: var(--tertiary);
+      transition: all 0.3s linear;
+      border-radius: var(--mint-border-radius);
+      text-transform: uppercase;
+      border: 1px solid var(--tertiary);
+      &:hover {
+        color: var(--secondary);
+        background: var(--tertiary-hover);
+      }
+    }
+  }
+
+  .loading-container:not(:has(.spinner)) {
+    min-height: unset;
+  }
+}
+
+.navigation-categories .search-banner {
+  border-radius: var(--mint-border-radius);
+  height: 350px;
+  box-sizing: border-box;
+  padding: 2.5em 0 3em;
+  margin: 1em auto;
+  max-width: 1110px;
+}
+
+.category-box-inner {
+  @include mint-card-bg;
+}
+
+.navigation-topics {
+  .container.list-container {
+    border-radius: var(--mint-border-radius);
+    box-shadow: 0 0px 0px 0 rgba(103, 151, 255, 0.1), /*박스 테두리 엷은 음영*/
+      0 0px 0px 0 rgba(133, 255, 103, 0.1);
+    padding: 0.5em; /*토픽 네비게이션 리스트 양쪽 간격*/
+    @include mint-card-bg;
+    border: 1px solid #E8E8E8; /*토픽 네비게이션 테두리 라운드 및 라인*/
+    margin-top: 0.8em;
+  }
+}
+
+.search-widget .search-context {
+  padding: 1px;
+  background-color: var(--tertiary-medium);
+  border-radius: var(--mint-border-radius);
+}
+
+.search-menu .search-context .show-help {
+  color: var(--primary-very-low);
+}
+
+.search-menu .search-input {
+  border: 1;
+}
+
+.menu-panel .d-label {
+  color: var(--primary);
+}
+
+a {
+  color: var(--tertiary-hover);
+}
+
+.category-boxes {
+  grid-gap: 2em;
+  border-radius: var(--mint-border-radius);
+  .category-box {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border: none;
+    border: 1px solid #E8E8E8; /*어딘지 찾아야 함. 테두리 라운드 및 라인*/
+    background: var(--secondary);
+    border-radius: var(--mint-border-radius);
+    box-shadow: 0px 0px 0px 0px rgba(2, 47, 57, 0.14);
+    .category-box-inner {
+      border: none;
+      padding: 0;
+      .category-details {
+        padding: 2em;
+      }
+    }
+    &:hover {
+      box-shadow: 0px 40px 30px 0px rgba(2, 47, 57, 0.1);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .category-boxes.with-logos.with-subcategories {
+    grid-template-columns: 1fr;
+  }
+}
+
+.category-list-item.category {
+  border-radius: var(--mint-border-radius);
+  border-right: 1px solid var(--primary-low) !important;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  margin: 0 0.59em 2em 0.59em;
+  background: var(--primary-very-low);
+}
+
+#create-topic {  /*카테고리 테그, 최신, 실시간 인기주제, 주요 등 나와있는 라인*/
+  color: var(--secondary);
+  background: var(--tertiary);
+  transition: all 0.3s linear;
+  border-radius: var(--mint-border-radius);
+  text-transform: uppercase;
+  border: 2px solid var(--tertiary);
+  .fa {
+    color: var(--secondary);
+  }
+  &:hover {
+    background: var(--tertiary);
+    color: var(--secondary);
+    box-shadow: var(--mint-hover-shadow);
+    transition: all 0.3s linear;
+    border-radius: var(--mint-border-radius);
+    .fa {
+      color: var(--secondary);
+    }
+  }
+}
+
+.open .grippie {
+  background: var(--tertiary);
+}
+
+.options.toolbar-popup-menu-options {
+  button.single-select-header.dropdown-select-box-header {
+    background: transparent;
+    border-radius: none;
+    border: none;
+    &:hover {
+      background: var(--tertiary);
+      border-radius: 0;
+    }
+  }
+}
+
+.list-controls .combo-box .combo-box-header {
+  border: none;
+  border-radius: var(--mint-border-radius);
+  @include mint-card-bg;
+}
+
+.menu-panel .panel-body-bottom .btn {
+  svg {
+    color: var(--tertiary);
+  }
+  &:hover {
+    background: var(--tertiary);
+    color: var(--secondary);
+  }
+}
+
+.nav-pills li a {
+  border: 1px solid transparent;
+  border-radius: var(--mint-border-radius);
+  &:hover {
+    border-radius: var(--mint-border-radius);
+    transition: all 0.3s linear;
+    background-color: transparent;
+    color: var(--tertiary);
+    border: 1px dashed var(--tertiary);
+  }
+  &.active {
+    border-radius: var(--mint-border-radius);
+    transition: all 0.3s linear;
+    background: var(--mint-color-mint);
+    color: var(--secondary);
+    border: 1px solid var(--mint-color-mint);
+  }
+}
+
+.select-kit.dropdown-select-box .dropdown-select-box-header {
+  background: var(--tertiary);
+  border-radius: var(--mint-border-radius);
+  border: 1px solid var(--tertiary);
+  color: var(--secondary);
+  svg {
+    color: var(--secondary);
+    &:hover {
+      color: var(--secondary);
+    }
+  }
+}
+
+.d-editor-button-bar
+  .select-kit.dropdown-select-box
+  .dropdown-select-box-header {
+  background: transparent;
+  color: var(--primary-medium);
+  border: 1px solid transparent;
+  border-radius: 0;
+  svg {
+    color: currentColor;
+  }
+  &:hover {
+    color: var(--secondary);
+    background: var(--tertiary-hover);
+    border: 1px solid var(--tertiary-hover);
+    border-radius: 5px;
+  }
+}
+
+.discourse-no-touch .btn:hover .d-icon,
+.discourse-no-touch .btn.btn-hover .d-icon {
+  color: var(--tertiary-hover);
+}
+
+.discourse-no-touch .btn:not(.btn-flat):hover,
+.discourse-no-touch .btn:not(.btn-flat).btn-hover {
+  color: var(--secondary);
+  background: var(--tertiary-hover);
+  border-radius: 10px; /*버튼 터치 때 모양변화*/
+  .fa {
+    color: var(--secondary);
+  }
+}
+
+.menu-panel .widget-link:hover,
+.menu-panel .widget-link:focus,
+.menu-panel .categories-link:hover,
+.menu-panel .categories-link:focus {
+  background-color: var(--tertiary-low);
+}
+
+.btn-default {
+  color: var(--secondary);
+  background: var(--tertiary);
+  transition: all 0.3s linear;
+  border-radius: var(--mint-border-radius);
+  text-transform: uppercase;
+  border: 1px solid var(--tertiary);
+  .fa {
+    color: var(--secondary);
+  }
+}
+
+.btn-primary {
+  border-radius: var(--mint-border-radius);
+}
+
+.discourse-no-touch .btn-danger:hover {
+  background: var(--danger-hover);
+}
+
+.create {
+  border-radius: var(--mint-border-radius);
+}
+
+.select-kit .select-kit-row.is-selected {
+  background-color: var(--secondary-very-high);
+}
+
+.modal-inner-container,
+.edit-category-footer {
+  .btn-primary {
+    border-radius: var(--mint-border-radius);
+  }
+}
+
+.user-menu .quick-access-panel li:hover {
+  background-color: var(--tertiary-low);
+}
+
+a:hover {
+  color: var(--tertiary-hover);
+}
+
+.image-upload-controls .btn-default {
+  border: 1px solid var(--secondary);
+  .fa {
+    color: var(--secondary);
+  }
+}
+
+.admin-controls,
+.email-template,
+.admin-container {
+  .nav-pills > li a.active {
+    background: var(--tertiary);
+    color: var(--secondary);
+  }
+  .btn-primary {
+    border-radius: var(--mint-border-radius);
+  }
+}
+
+.custom-search-banner-wrap {
+  margin-top: -50px; /* 메인 상단 검색창 위 간격 */
+  margin-bottom: 0px; /* 메인 상단 검색창 아래 간격 */
+  
+}
+
+.custom-search-banner-wrap h1,
+.custom-search-banner-wrap p {
+  color: var(--tertiary-very-low);
+  transform: scale(0);
+  
+}
+
+.btn[href] {
+  color: var(--secondary);
+}
+
+summary.select-kit-header.single-select-header.dropdown-select-box-header {
+  padding: 0.5em;
+}
+
+.search-container .search-advanced-sidebar {
+  .search-advanced-title {
+    background: var(--tertiary);
+    color: var(--secondary);
+  }
+  .search-advanced-filters {
+    border: 1px dashed var(--tertiary);
+  }
+}
+
+// Control order of plugin connectors
+.search-banner {
+  display: none;
+}
+
+.custom-homepage-columns {
+  display: none;
+}
+
+.mint-component-extensions {
+  .search-banner {
+    display: block;
+  }
+
+  .custom-homepage-columns {
+    display: flex;
+  }
+}
